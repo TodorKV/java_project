@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Todor Valkov
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          - tableExists:
+              - tableName: boxes
+      changes:
+        - createTable:
+            tableName: boxes
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar
+              - column:
+                  name: floor
+                  type: int
+              - column:
+                  name: placement_row
+                  type: int
+              - column:
+                  name: placement_column
+                  type: int
+              - column:
+                  name: hall_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_hall_id_boxes
+                    references: halls(id)

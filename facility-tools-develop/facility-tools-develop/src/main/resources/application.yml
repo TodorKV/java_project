@@ -1,0 +1,18 @@
+server:
+    port: 8080
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/facility_tools
+        username: postgres
+        password: Bor^nsG4!
+    liquibase:
+        change-log: classpath:db/changelog/db-changelog.yml
+    jpa:
+        hibernate:
+            ddl-auto: none
+        show-sql: true
+        database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+    data:
+        rest:
+            base-path: "/api/v2"
+            detection-strategy: annotated

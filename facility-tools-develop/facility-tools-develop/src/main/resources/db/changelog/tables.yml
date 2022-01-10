@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeSets/tenants.yml
+  - include:
+      file: db/changelog/changeSets/users.yml
+  - include:
+      file: db/changelog/changeSets/halls.yml
+  - include:
+      file: db/changelog/changeSets/boxes.yml
+  - include:
+      file: db/changelog/changeSets/items.yml
+

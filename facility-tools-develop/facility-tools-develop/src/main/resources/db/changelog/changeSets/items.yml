@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Todor Valkov
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          - tableExists:
+              - tableName: items
+      changes:
+        - createTable:
+            tableName: items
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar
+              - column:
+                  name: description
+                  type: varchar
+              - column:
+                  name: box_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_box_id_items
+                    references: boxes(id)
+              - column:
+                  name: tenant_id
+                  type: varchar
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_tenant_id_items
+                    references: tenants(id)

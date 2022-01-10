@@ -1,0 +1,12 @@
+spring:
+    datasource:
+        driver-class-name: org.h2.Driver
+        url: jdbc:h2:mem:warehousesSPRING3;DB_CLOSE_DELAY=-1
+        password: sa
+        username: sa
+    liquibase:
+        change-log: classpath:db/changelog/db-changelog.yml
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+        show-sql: true
